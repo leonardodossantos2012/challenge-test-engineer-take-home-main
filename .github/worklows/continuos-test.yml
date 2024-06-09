@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - '**'  # Triggers on push to any branch
+      - '*'  # Triggers on push to any branch
   pull_request:
     branches:
       - 'main'  # Triggers on pull request to any branch
