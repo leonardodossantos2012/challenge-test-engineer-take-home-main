@@ -29,12 +29,12 @@ jobs:
     - name: Run Unit Tests
       run: |
         cd software
-        docker-compose run --rm tests pytest tests/unit-test
+        docker-compose run --rm tests pytest tests/unit
 
     - name: Run Integration Tests
       run: |
         cd software
-        docker-compose run --rm tests pytest tests/integration-test
+        docker-compose run --rm tests pytest tests/integration
 
     - name: Shut down Docker Compose services
       run: |
