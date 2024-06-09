@@ -1,20 +1,25 @@
+version: '3.8'
+
 services:
   backend:
     build:
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - .:/app
     networks:
       - public
       - private
+
   frontend:
     build:
       context: front-end
+      dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - "3000:3000"
     volumes:
       - ./front-end:/app
       - /app/node_modules
@@ -23,17 +28,25 @@ services:
     depends_on:
       - backend
 
+  sqlite:
+    image: nouchka/sqlite3
+    volumes:
+      - ./data:/data
+    networks:
+      - private
+
   tests:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["debugpy", "--listen", "0.0.0.0:5678", "--wait-for-client", "-m", "pytest", "--tb=short", "-p", "no:warnings"]
+    command: ["pytest", "--tb=short", "-p", "no:warnings"]
     volumes:
       - .:/app
     networks:
       - private
     depends_on:
       - backend
+      - sqlite
 
 networks:
   public:
