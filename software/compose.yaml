@@ -1,20 +1,25 @@
+version: '3.8'
+
 services:
   backend:
     build:
-      dockerfile: ./Dockerfile
+      context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
       - .:/app
     networks:
       - public
       - private
+
   frontend:
     build:
       context: front-end
+    dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - "3000:3000"
     volumes:
       - ./front-end:/app
       - /app/node_modules
@@ -22,6 +27,13 @@ services:
       - public
     depends_on:
       - backend
+
+  sqlite:
+    image: nouchka/sqlite3
+    volumes:
+      - ./data:/data
+    networks:
+      - private
 
   tests:
     build:
@@ -34,6 +46,7 @@ services:
       - private
     depends_on:
       - backend
+      - sqlite
 
 networks:
   public:
