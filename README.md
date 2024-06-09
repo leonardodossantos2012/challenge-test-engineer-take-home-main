@@ -1,1 +1,0 @@
-# challenge-test-engineer-take-home-main

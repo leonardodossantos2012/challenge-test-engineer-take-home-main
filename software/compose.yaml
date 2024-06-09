@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      dockerfile: ./Dockerfile
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/app
+    networks:
+      - public
+      - private
+  frontend:
+    build:
+      context: front-end
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front-end:/app
+      - /app/node_modules
+    networks:
+      - public
+    depends_on:
+      - backend
+networks:
+  public:
+  private:
+    driver: bridge
