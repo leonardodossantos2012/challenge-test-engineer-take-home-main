@@ -22,6 +22,19 @@ services:
       - public
     depends_on:
       - backend
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["pytest", "--tb=short", "-p", "no:warnings"]
+    volumes:
+      - .:/app
+    networks:
+      - private
+    depends_on:
+      - backend
+
 networks:
   public:
   private:
