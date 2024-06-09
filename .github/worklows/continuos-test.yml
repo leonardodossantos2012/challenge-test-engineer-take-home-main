@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - '*'  # Triggers on push to any branch
+      - '**'  # Triggers on push to any branch
   pull_request:
     branches:
-      - 'main'  # Triggers on pull request to any branch
+      - '**'  # Triggers on pull request to any branch
 
 jobs:
   build:
@@ -23,20 +23,20 @@ jobs:
 
     - name: Build Docker Compose services
       run: |
-        cd ../../software
+        cd software
         docker-compose up --build -d
 
     - name: Run Unit Tests
       run: |
-        cd ../../software
+        cd software
         docker-compose run --rm tests pytest tests/unit-test
 
     - name: Run Integration Tests
       run: |
-        cd ../../software
+        cd software
         docker-compose run --rm tests pytest tests/integration-test
 
     - name: Shut down Docker Compose services
       run: |
-        cd ../../software
+        cd software
         docker-compose down
