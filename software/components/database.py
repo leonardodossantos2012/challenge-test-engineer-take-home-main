@@ -8,16 +8,21 @@ class Database:
     def create_table(self):
         """Creates a table in the database to store test results."""
         self.conn.execute('''
-            CREATE TABLE IF NOT EXISTS results
-            (id INTEGER PRIMARY KEY AUTOINCREMENT, image_id INTEGER, defect_detected BOOLEAN)
+            CREATE TABLE IF NOT EXISTS results (
+                id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                image_id TEXT, 
+                defect_detected BOOLEAN,
+                with_defect BOOLEAN,
+                low_lighting BOOLEAN
+            )
         ''')
         self.conn.commit()
 
-    def log_result(self, image_id, defect_detected):
+    def log_result(self, image_id, defect_detected, with_defect, low_lighting):
         """Logs the test result in the database."""
         self.conn.execute('''
-            INSERT INTO results (image_id, defect_detected) VALUES (?, ?)
-        ''', (image_id, defect_detected))
+            INSERT INTO results (image_id, defect_detected, with_defect, low_lighting) VALUES (?, ?, ?, ?)
+        ''', (image_id, defect_detected, with_defect, low_lighting))
         self.conn.commit()
 
     def close(self):
