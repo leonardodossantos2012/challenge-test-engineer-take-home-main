@@ -17,7 +17,7 @@ services:
   frontend:
     build:
       context: front-end
-    dockerfile: Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
@@ -39,7 +39,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["debugpy", "--listen", "0.0.0.0:5678", "--wait-for-client", "-m", "pytest", "--tb=short", "-p", "no:warnings"]
+    command: ["pytest", "--tb=short", "-p", "no:warnings"]
     volumes:
       - .:/app
     networks:
