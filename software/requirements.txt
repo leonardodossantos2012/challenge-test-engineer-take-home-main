@@ -5,3 +5,5 @@ uuid==1.30
 Flask-Cors==4.0.0
 pytest 
 pytest-flask
+debugpy
+jsonschema
