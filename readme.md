@@ -1,7 +1,9 @@
+
 # Code Challenge Overview.ai
 
-This project aim has principal objective resolve the challenge following the documentation [Software Automation Testing Assignment](./software/docs/challenge.md)
+This project's principal objective resolve the challenge following the documentation [Software Automation Testing Assignment](./software/docs/challenge.md)
 
+This project consists of a backend service that captures images, predicts defects using an AI system, and logs the results in a database. The project includes unit tests and integration tests to ensure the functionality of the application.
 
 ## Documentation about the implementation
 
@@ -12,7 +14,61 @@ Explaing about the decisions implementation to each task at software:
 - [Task 4](./software/docs/task4.md)
 - [Bonus](./software/docs/bonus.md)
 
-# Project Structure
+
+## Prerequisites
+
+- Docker
+- Docker Compose
+
+Ensure you have Docker and Docker Compose installed on your machine. You can download them from the following links:
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Running the Application
+
+To run the application using Docker Compose, follow these steps:
+
+1. **Clone the Repository**:
+
+   ```sh
+   git clone https://github.com/your-repo/project-name.git
+   cd project-name
+   ```
+
+2. **Build and Run the Services:**
+   ```sh
+   docker-compose up --build
+   ```
+   This command will build the Docker images and start the services defined in the docker-compose.yml file.
+
+## Running Tests
+
+### Unit Tests
+To run the unit tests:
+1. Ensure the Docker Compose services are running:
+   ```sh
+    docker-compose up --build
+   ```
+2. Run the unit tests using Docker Compose:
+   ```sh
+   docker-compose run --rm tests pytest tests/unit-test
+   ```
+### Integration Tests
+To run the integration tests:
+1. Ensure the Docker Compose services are running:
+   ```sh
+    docker-compose up --build
+   ```
+2. Run the unit tests using Docker Compose:
+  ```sh
+   docker-compose run --rm tests pytest tests/integration-test
+  ```
+### Continuous Integration
+This project uses GitHub Actions for continuous integration. The workflow is defined in the **.github/workflows/continuos-test.yml** file.
+
+
+
+## Project Structure
 
 This project follows a structured organization to ensure clarity and ease of navigation. Below is a detailed explanation of the folder hierarchy and the objectives of each component.
 
