@@ -7,7 +7,6 @@ This project aim has principal objective resolve the challenge following the doc
 
 Explaing about the decisions implementation to each task at software: 
 
-- [Task 1](./software/docs/task1.md)
 - [Task 2](./software/docs/task2.md)
 - [Task 3](./software/docs/task3.md)
 - [Task 4](./software/docs/task4.md)
