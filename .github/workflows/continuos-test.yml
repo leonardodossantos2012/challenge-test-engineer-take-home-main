@@ -36,7 +36,7 @@ jobs:
       - name: Build and push Docker images
         run: |
           cd software
-          docker-compose -f software/compose.yml build
+          docker-compose up --build
 
   unit-tests:
     runs-on: ubuntu-latest
