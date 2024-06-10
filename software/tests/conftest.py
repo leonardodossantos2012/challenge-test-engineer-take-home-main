@@ -14,11 +14,10 @@ def client(app):
 
 @pytest.fixture(autouse=True)
 def setup_and_teardown():
-    # Setup: Ensure the database is clean before each test
     with flask_app.app_context():
         database.create_table()
     yield
-    # Teardown: Clean up if necessary (e.g., delete rows but do not close the connection)
+
     with flask_app.app_context():
         database.conn.execute('DELETE FROM results')
         database.conn.commit()

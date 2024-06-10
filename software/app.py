@@ -10,7 +10,6 @@ from components.database import Database
 app = Flask(__name__)
 CORS(app)
 
-# Initialize the camera and AI system
 camera = CameraMock()
 ai_system = AISystemMock()
 database = Database("test_results.db")
@@ -21,21 +20,16 @@ def capture_image():
     with_defect = data.get('with_defect', False)
     low_lighting = data.get('low_lighting', False)
 
-    # Step 1: Capture the image    
     image = camera.capture(with_defect, low_lighting)
     image_array = np.array(image)
     image_uuid = uuid.uuid4()
 
-    # Step 2: Predict if there is a defect in the image
     defect_present = ai_system.predict(image)
 
-    # Step 3: Log the result in the database
     database.log_result(image_id=str(image_uuid), defect_detected=bool(defect_present), with_defect=with_defect, low_lighting=low_lighting)
 
-    # Convert image data to list for JSON serialization
     raw_image = image_array.tolist()
     
-    # Step 4: Return the captured image and prediction result
     return jsonify(raw_image=raw_image, image_UUID=str(image_uuid), defect_present=bool(defect_present))
 
 @app.route('/get_result/<image_id>', methods=['GET'])

@@ -14,7 +14,6 @@ def test_capture_image(client):
     assert 'defect_present' in data
 
 def test_get_result(client):
-    # First, capture an image to ensure there is a result to fetch
     capture_response = client.post('/capture_image', json={
         "with_defect": True,
         "low_lighting": False
@@ -23,7 +22,6 @@ def test_get_result(client):
     capture_data = capture_response.get_json()
     image_uuid = capture_data['image_UUID']
 
-    # Now, fetch the result using the image_uuid
     get_response = client.get(f'/get_result/{image_uuid}')
     assert get_response.status_code == 200
     result_data = get_response.get_json()
