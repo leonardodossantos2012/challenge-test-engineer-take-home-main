@@ -1,15 +1,22 @@
-This project aim has principal objective resolve the challenge following the documentation: 
-**insert documentation**
+# Code Challenge Overview.ai
 
+This project aim has principal objective resolve the challenge following the documentation [Software Automation Testing Assignment](./software/docs/challenge.md)
+
+
+## Documentation about the implementation
 
 Explaing about the decisions implementation to each task at software: 
 
-Task 1: 
+[Task 1](./software/docs/task1.md)
+[Task 2](./software/docs/task2.md)
+[Task 3](./software/docs/task3.md)
+[Task 4](./software/docs/task4.md)
+[Bonus](./software/docs/bonus.md)
 
-Task 2: 
 
-Task 3: Debugging and Reliability Enhancement
-The non-deterministic nature of CameraMock under low-lighting conditions significantly impacts the reliability of AISystemMock. By introducing deterministic behavior during testing through seeding, adjusting detection thresholds, and implementing preprocessing steps, the reliability of the AI system can be improved. Documenting these findings helps in understanding the limitations and guiding further improvements in the system.
+
+## Structure of folders
+
 
 
 
