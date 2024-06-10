@@ -4,6 +4,27 @@ import axios from "axios";
 
 const BACKEND_URL = 'http://127.0.0.1:8000';
 
+const handleCaptureImage = async () => {
+  try {
+    const response = await axios.post(`${BACKEND_URL}/capture_image`, {
+      with_defect: true,
+      low_lighting: true,
+    }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status === 200) {
+      alert('Captured with success!');
+    }
+    console.log(response.data);
+  } catch (error) {
+    console.error('Error capturing image:', error);
+    alert('Failed to capture image.');
+  }
+};
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -21,18 +42,7 @@ export default function Home() {
       <div className="mb-32 grid text-center">
         <button 
           className="group rounded-lg border border-neutral-700 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          onClick={async () => {
-            const response = await axios.post(
-              `${BACKEND_URL}/capture_image`,
-              { with_defect: true, low_lighting: true },
-              {
-                headers: {
-                  "Content-Type": "application/json",
-                },
-              }
-            );
-            console.log(response.data);
-          }}
+          onClick={handleCaptureImage}
         >
           Capture
         </button>

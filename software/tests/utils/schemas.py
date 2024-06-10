@@ -3,13 +3,19 @@ capture_image_schema = {
     "properties": {
         "raw_image": {
             "type": "array",
-            "items": {"type": "array", "items": {"type": "integer"}}
+            "items": {
+                "type": "array",
+                "items": {"type": "number"}  # Allow floating-point numbers
+            }
         },
         "image_UUID": {"type": "string"},
         "defect_present": {"type": "boolean"}
     },
     "required": ["raw_image", "image_UUID", "defect_present"]
 }
+
+
+
 
 get_result_schema = {
     "type": "object",
@@ -22,3 +28,5 @@ get_result_schema = {
     },
     "required": ["id", "image_id", "defect_detected", "with_defect", "low_lighting"]
 }
+
+
