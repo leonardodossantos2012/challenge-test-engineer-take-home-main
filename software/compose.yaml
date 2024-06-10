@@ -49,7 +49,9 @@ services:
       - sqlite
 
   robot:
-    image: robotframework/rfbrowser:latest
+    build:
+      context: ./software/tests/e2e
+      dockerfile: Dockerfile
     volumes:
       - ./software/tests/e2e:/opt/robotframework/tests
       - ./software/tests/e2e/results:/opt/robotframework/reports
@@ -58,7 +60,7 @@ services:
     depends_on:
       - frontend
     entrypoint: ["robot"]
-    command: ["/opt/robotframework/tests/tests/capture_image.robot", "--outputdir", "/opt/robotframework/reports"]
+    command: ["/opt/robotframework/tests/test-cases/capture_image.robot", "--outputdir", "/opt/robotframework/reports"]
 
 networks:
   public:
