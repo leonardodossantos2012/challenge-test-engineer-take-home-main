@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker images
-        run: docker-compose -f software/compose.yml build
+        run: docker-compose -f software/compose.yaml build
 
   unit-tests:
     runs-on: ubuntu-latest
