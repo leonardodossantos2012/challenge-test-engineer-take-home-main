@@ -6,7 +6,7 @@ ${BACKEND_URL}    http://localhost:3000
 
 *** Test Cases ***
 Capture Image Test
-    New Browser    chromium    headless=True
+    New Browser    firefox    headless=True
     New Page
     Go To    ${BACKEND_URL}
     Click    text=Capture
