@@ -1,13 +1,21 @@
 # software/tests/e2e/Dockerfile
 FROM python:3.9
 
+# Install necessary packages
+# RUN apt-get update && apt-get install -y \
+#     curl \
+#     gnupg \
+#     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash  - 
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y nodejs \
     npm                       # note this one
+
+
+# Install Node.js and npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash  - 
+RUN apt-get install -y nodejs
 
 # Install Playwright and browsers
 RUN npm install -g playwright && PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright npx playwright install
