@@ -1,6 +1,5 @@
 FROM python:3.9-slim
 
-# Install necessary packages
 RUN apt-get update && apt-get install -y \
     curl \
     gnupg \
@@ -22,26 +21,19 @@ RUN apt-get update && apt-get install -y \
     fonts-liberation \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs
 
-# Verify Node.js and npm installation
 RUN node -v
 RUN npm -v
 
-# Install Robot Framework and Browser library
 RUN pip install robotframework robotframework-browser
 
-# Initialize the Browser library
 RUN rfbrowser init
 
-# Setup working directory
 WORKDIR /opt/robotframework
 
-# Copy the tests to the container
 COPY . .
 
-# Ensure Node.js is in PATH
 ENV PATH="/usr/local/bin/:${PATH}"
 
 # Set the entry point to run the Robot Framework tests

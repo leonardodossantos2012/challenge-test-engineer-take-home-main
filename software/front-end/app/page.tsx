@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-import Image from 'next/image'; // Ensure this import is correct
+import Image from 'next/image';
 
 const BACKEND_URL = 'http://127.0.0.1:8000';
 

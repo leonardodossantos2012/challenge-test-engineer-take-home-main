@@ -10,8 +10,7 @@ ${EXPECTED_TEXT}  Captured with success!
 
 *** Test Cases ***
 Validate Capture Image Modal
-    [Documentation]    Validate that the capture image modal appears and shows the correct message
-    # Open Browser   headless=False
+    [Documentation]    
     New Page    ${BASE_URL}
     Take Screenshot
     Click   id=${BUTTON_ID}
