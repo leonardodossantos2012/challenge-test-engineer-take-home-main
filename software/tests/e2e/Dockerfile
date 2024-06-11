@@ -2,10 +2,16 @@
 FROM python:3.9
 
 # Install necessary packages
-RUN apt-get update && apt-get install -y \
-    curl \
-    gnupg \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y \
+#     curl \
+#     gnupg \
+#     && rm -rf /var/lib/apt/lists/*
+
+
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y nodejs \
+    npm                       # note this one
+
 
 # Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && apt-get install -y nodejs
