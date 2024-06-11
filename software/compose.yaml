@@ -60,7 +60,7 @@ services:
     depends_on:
       - frontend
     entrypoint: ["robot"]
-    command: ["/opt/robotframework/tests/test-cases/capture_image.robot", "--outputdir", "/opt/robotframework/reports"]
+    command: ["/opt/robotframework/tests/tests/capture_image.robot", "--outputdir", "/opt/robotframework/reports"]
 
 networks:
   public:
