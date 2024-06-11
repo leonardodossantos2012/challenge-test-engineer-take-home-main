@@ -16,9 +16,9 @@ const Modal: React.FC<ModalProps> = ({ id, text, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div id={id} className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white p-4 rounded shadow-lg">
-        <h2 className="text-lg font-bold">{text}</h2>
+        <h2  id="text1" className="text-lg font-bold">{text}</h2>
         <button onClick={onClose} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Close</button>
       </div>
     </div>
@@ -69,6 +69,7 @@ const Home: React.FC = () => {
       </div>
       <div className="mb-32 grid text-center">
         <button
+          id="button1"
           className="group rounded-lg border border-neutral-700 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800"
           onClick={handleCaptureImage}
         >

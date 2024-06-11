@@ -7,6 +7,3 @@ pytest
 pytest-flask
 debugpy
 jsonschema
-robotframework
-robotframework-browser
-robotframework-requests
