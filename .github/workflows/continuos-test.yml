@@ -90,6 +90,25 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Install Dependecies
+        env:
+          PYTHON_VERSION: "3.10"
+        run: |
+          py_version=$PYTHON_VERSION
+          sudo apt update
+          sudo apt install software-properties-common
+          sudo add-apt-repository -y ppa:deadsnakes/ppa
+          sudo apt update
+          sudo apt install python"$py_version"
+          sudo apt install -y nodejs
+
+      - name: Install libraries for robot
+        run: |
+          cd software
+          pip install -U pip
+          pip install -r robot-requirements.txt
+          python -m Browser.entry init          
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -113,7 +132,7 @@ jobs:
       - name: Run E2E tests
         run: |
           cd software
-          docker-compose run --rm robot
+          robot -d ./results ./tests/e2e/tests/capture_image.robot
 
       - name: Tear down services
         run: | 
