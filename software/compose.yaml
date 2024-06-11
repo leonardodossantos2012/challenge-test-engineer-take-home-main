@@ -53,14 +53,12 @@ services:
       context: ./tests/e2e
       dockerfile: Dockerfile
     volumes:
-      - ./software/tests/e2e:/opt/robotframework/tests
-      - ./software/tests/e2e/results:/opt/robotframework/reports
+      - ./tests/e2e:/opt/robotframework/tests
+      - ./tests/e2e/results:/opt/robotframework/reports
     networks:
       - public
     depends_on:
       - frontend
-    entrypoint: ["robot"]
-    command: ["/opt/robotframework/tests/tests/capture_image.robot", "--outputdir", "/opt/robotframework/reports"]
 
 networks:
   public:
