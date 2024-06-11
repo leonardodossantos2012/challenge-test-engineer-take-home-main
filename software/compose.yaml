@@ -48,6 +48,18 @@ services:
       - backend
       - sqlite
 
+  robot:
+    build:
+      context: ./tests/e2e
+      dockerfile: Dockerfile
+    volumes:
+      - ./tests/e2e:/opt/robotframework/tests
+      - ./tests/e2e/results:/opt/robotframework/reports
+    networks:
+      - public
+    depends_on:
+      - frontend
+
 networks:
   public:
   private:

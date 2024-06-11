@@ -1,0 +1,13 @@
+software/test_results.db
+software/__pycache__/app.cpython-39.pyc
+software/components/__pycache__/__init__.cpython-39.pyc
+software/components/__pycache__/ai.cpython-39.pyc
+software/components/__pycache__/camera.cpython-39.pyc
+software/components/__pycache__/database.cpython-39.pyc
+software/tests/__pycache__/__init__.cpython-39.pyc
+software/tests/__pycache__/conftest.cpython-39-pytest-8.2.2.pyc
+software/tests/integration/__pycache__/test_validate_camera.cpython-39-pytest-8.2.2.pyc
+software/tests/unit/__pycache__/__init__.cpython-39.pyc
+software/tests/unit/__pycache__/test_app.cpython-39-pytest-8.2.2.pyc
+software/tests/utils/__pycache__/schemas.cpython-39.pyc
+software/test_results.db
