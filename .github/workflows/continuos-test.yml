@@ -116,9 +116,12 @@ jobs:
           docker-compose run --rm robot
 
       - name: Tear down services
-        run: docker-compose down
+        run: | 
+          cd software
+          docker-compose down
 
       - name: Upload Robot Framework results
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: robot-framework-results
