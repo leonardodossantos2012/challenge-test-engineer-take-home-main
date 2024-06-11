@@ -29,10 +29,6 @@ RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -
 RUN node -v
 RUN npm -v
 
-# Install Playwright and browsers
-RUN npm install -g playwright && \
-    PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright npx playwright install
-
 # Install Robot Framework and Browser library
 RUN pip install robotframework robotframework-browser
 
