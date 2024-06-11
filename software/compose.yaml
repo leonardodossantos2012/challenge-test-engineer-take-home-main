@@ -50,7 +50,7 @@ services:
 
   robot:
     build:
-      context: ./software/tests/e2e
+      context: ./tests/e2e
       dockerfile: Dockerfile
     volumes:
       - ./software/tests/e2e:/opt/robotframework/tests
