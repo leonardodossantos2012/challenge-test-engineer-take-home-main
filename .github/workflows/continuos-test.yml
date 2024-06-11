@@ -144,4 +144,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: robot-framework-results
-          path: ./software/tests/e2e/results/
+          path: ./software/results
