@@ -69,7 +69,7 @@ jobs:
 
       - name: Set up Docker Compose
         run: |
-          docker-compose -f software/compose.yml up -d backend frontend
+          docker-compose -f software/compose.yaml up -d backend frontend
 
       - name: Wait for services to be up
         run: sleep 30
