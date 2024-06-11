@@ -23,6 +23,8 @@ RUN npm install -g playwright && PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwr
 # Install Robot Framework and Browser library
 RUN pip install robotframework robotframework-browser
 
+RUN rfbrowser init
+
 # Setup working directory
 WORKDIR /opt/robotframework
 

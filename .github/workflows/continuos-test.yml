@@ -26,20 +26,19 @@ jobs:
         cd software
         docker-compose up --build -d
 
-    # - name: Run Unit Tests
-    #   run: |
-    #     cd software
-    #     docker-compose run --rm tests pytest tests/unit
+    - name: Run Unit Tests
+      run: |
+        cd software
+        docker-compose run --rm tests pytest tests/unit
 
-    # - name: Run Integration Tests
-    #   run: |
-    #     cd software
-    #     docker-compose run --rm tests pytest tests/integration
+    - name: Run Integration Tests
+      run: |
+        cd software
+        docker-compose run --rm tests pytest tests/integration
 
     - name: Run E2E Tests
       run: |
         cd software
-        docker-compose up --build -d
         docker-compose run --rm tests robot -d ./tests/e2e/results ./tests/e2e/tests/capture_image.robot
 
     - name: Shut down Docker Compose services
