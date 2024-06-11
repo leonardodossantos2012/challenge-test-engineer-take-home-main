@@ -39,7 +39,7 @@ jobs:
     - name: Run Integration Tests
       run: |
         cd software
-        docker-compose run --rm tests robot -d ./tests/e2e/results ./tests/e2e/test-cases/capture_image.robot
+        docker-compose run --rm tests robot -d ./tests/e2e/results ./tests/e2e/tests/capture_image.robot
 
     - name: Shut down Docker Compose services
       run: |
